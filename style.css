@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-family: "Noto Sans", sans-serif;
+  --primary-color: #d07f51;
+  --primary-color-light: #dba27d;
+  /* --light-bg-color: #fafafa;
+  --bg-main-dark-color: #0d0d0d;
+  --light-text-color: #f1f1f1;
+  --medium-gray-bg-color: #a8a6a61e; */
+}
+
+::placeholder {
+  font-family: var(--font-family);
+}
+
+body {
+  font-family: var(--font-family);
+  position: relative;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+i {
+  cursor: pointer;
+}
+
+/* Main Container */
+.main__container {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 50px 1fr;
+  height: 100vh;
+  gap: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 0;
+}
+
+/* Navbar */
+nav {
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  border-top-left-radius: 5px;
+}
+
+/* Navbar Logo */
+.logo {
+  font-size: 2rem;
+}
+
+/* Submit Form */
+form {
+  position: relative;
+  width: 45rem;
+}
+
+/* Input Search Bar */
+.search {
+  padding: 1.5rem 2rem;
+  width: 100%;
+  border-radius: 25px;
+  border: 1px solid #999;
+  outline: none;
+}
+
+.search:focus {
+  box-shadow: 2px 3px 5px #61555128;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4px;
+  padding: 1rem 2.5rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Nav Funtionalities */
+.nav__functions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+}
+
+.nav__functions i {
+  padding: 0 1rem;
+}
+
+/* Left Sidebar */
+.sidebar {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  padding: 0 2rem;
+  overflow-y: auto;
+  border: 1px solid #999;
+  border-top-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 10rem 0;
+  align-items: center;
+}
+
+.sidebar i {
+  font-size: 2rem;
+}
+
+/* Main Content */
+.main-content {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  padding: 20px;
+  border: 2px solid red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Artist Card */
+.artist__card {
+  border: 2px solid blue;
+  height: 90%;
+  position: relative;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+
+.artist__card:hover .artist__info {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Artist Image */
+.artist__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Artsist Short Information */
+.artist__info {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60%;
+  padding: 0rem;
+  display: flex;
+  gap: 0rem;
+  align-items: center;
+  transform: translate(-50%, 100%);
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.artist__info span:nth-child(n) {
+  background: var(--primary-color);
+}
+.artist__info span:nth-child(2n) {
+  background: var(--primary-color-light);
+}
+
+.artist__info span {
+  flex: 1;
+  font-size: 1.5rem;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem;
+  color: #fff;
+}
+
+.first__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: rgb(205, 225, 176);
+  border-radius: 10px;
+  display: flex;
+
+  /* border: 2px solid red; */
+}
+
+.artist__modal--image,
+.artist__album--list {
+  border-radius: 10px;
+  overflow: hidden;
+  /* overflow: none; */
+  flex: 1;
+  /* border: 2px solid #333; */
+}
+
+.artist__modal--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist__album--list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* padding: 0 2rem; */
+}
+
+.artist__album--list li {
+  padding: 0 2rem;
+  /* flex-basis: calc(25% - 10px); */
+}
+
+.pagination--buttons {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  display: flex;
+
+  gap: 2rem;
+  /* border: 3px saddlebrown solid; */
+}
+
+.prev--page,
+.next--page {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  /* border: 2px solid red; */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  border-radius: 20px;
+  background: #f6e5dc;
+  cursor: pointer;
+  color: #2b2828;
+}
+
+.prev--page button,
+.next--page button {
+}
+/*  */
