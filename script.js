@@ -1,9 +1,11 @@
 "use strict";
 const artistCard = document.querySelectorAll(".artist__card");
+const modal = document.querySelector(".modal");
 
 artistCard.forEach((card) => {
   card.addEventListener("click", function () {
-    console.log(card);
+    modal.style.display = "flex";
+    // console.log(card);
     // card.style.backgroundColor = "red";
   });
 });
